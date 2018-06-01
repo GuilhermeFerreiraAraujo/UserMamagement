@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagement.Services", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagement.Intefaces", "UserManagement.Intefaces\UserManagement.Intefaces.csproj", "{B47C4070-0BB4-4F5C-AEF8-F69847FF5A8E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserManagement.Models", "UserManagement.Models\UserManagement.Models.csproj", "{472406F9-F9E3-426D-BA03-F707CB52723C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{B47C4070-0BB4-4F5C-AEF8-F69847FF5A8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B47C4070-0BB4-4F5C-AEF8-F69847FF5A8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B47C4070-0BB4-4F5C-AEF8-F69847FF5A8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{472406F9-F9E3-426D-BA03-F707CB52723C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{472406F9-F9E3-426D-BA03-F707CB52723C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{472406F9-F9E3-426D-BA03-F707CB52723C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{472406F9-F9E3-426D-BA03-F707CB52723C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
