@@ -14,7 +14,7 @@ namespace UserMamagement.Api
         [HttpGet]
         public IHttpActionResult GetUsers([FromBody]User user)
         {
-            return Ok("Not implemented");
+            return Ok("Not implemented yet");
         }
 
         [Route("Api/User/Add")]
