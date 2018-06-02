@@ -10,6 +10,9 @@ namespace UserManagement.Intefaces.IService
     public interface IUserService
     {
         IEnumerable<User> GetUsers();
+        User GetUserById(string id);
         bool Add(User user);
+        bool Delete(string Id);
+        bool UpdateUser(User user);
     }
 }

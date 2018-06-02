@@ -1,0 +1,18 @@
+
+
+.add{
+    margin-top: 20px;
+    width:80%;
+}
+
+.edit{
+    margin-top: 20px;
+    width: 80%
+}
+
+.selectFileI{
+    position: absolute;
+    margin-top: 10px;
+    height: 80px;
+    opacity: 0;
+}

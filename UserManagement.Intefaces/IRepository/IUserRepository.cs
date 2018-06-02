@@ -11,5 +11,8 @@ namespace UserManagement.Intefaces.IRepository
     {
         IEnumerable<User> GetUsers();
         bool Add(User user);
+        bool Delete(User user);
+        User GetUserById(string userId);
+        bool UpdateUser(User user);
     }
 }

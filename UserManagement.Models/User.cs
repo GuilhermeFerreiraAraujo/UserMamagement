@@ -33,11 +33,14 @@ namespace UserManagement.Models
         [StringLength(250)]
         public string PersonalBlog { get; set; }
 
-        public int Id { get; set; }
+        public string Id { get; set; }
 
-        [Required]
+        
         [StringLength(250)]
         public string Img { get; set; }
+
+        public string Image { get; set; }
+
     }
 }
 

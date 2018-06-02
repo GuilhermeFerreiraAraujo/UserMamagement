@@ -1,25 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using UserMamagement.Models;
 using UserManagement.Intefaces.IService;
 using UserManagement.Models;
 using UserManagement.Services;
+using static System.Web.HttpContext;
 
 namespace UserMamagement.Api
 {
+
     public class UserController : ApiController
     {
 
         // GET: User
+        [AllowAnonymous]
         [Route("Api/User/Get")]
         [HttpGet]
+ 
         public IHttpActionResult GetUsers([FromBody]User user)
         {
             UserService _userService = new UserService();
             var result = _userService.GetUsers();
+
+            //byte[] image = Path.Combine(Server.MapPath("~/Content/Images/business_user.png"));
+
+            //string file = Current.Server.MapPath("~/Content/Images/business_user.png");
+            //byte[] buffer = File.ReadAllBytes(file);
+
+
+            //foreach (var item in result)
+            //{
+            //     item.Image = buffer;
+            //}
+
+
             return Ok(result);
         }
 
@@ -45,14 +64,18 @@ namespace UserMamagement.Api
         [HttpPut]
         public IHttpActionResult EditUser([FromBody] User user)
         {
-            return Ok("Not implemented");
+            UserService _userService = new UserService();
+            var result = _userService.UpdateUser(user);
+            return Ok("");
         }
 
         [Route("Api/User/Delete")]
-        [HttpDelete]
+        [HttpPost]
         public IHttpActionResult DeleteUser([FromBody]User user)
         {
-            return Ok("Not implemented");
+            UserService _userService = new UserService();
+            var result = _userService.Delete(user.Id);
+            return Ok(result);
         }
 
 

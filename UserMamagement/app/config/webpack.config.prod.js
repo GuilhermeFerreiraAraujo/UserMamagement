@@ -97,7 +97,8 @@ module.exports = {
       'Atoms': path.resolve('src/components/atoms'),
       'Layouts': path.resolve('src/components/layouts'),
       'Molecules' : path.resolve('src/components/molecules'),
-      
+      'Views': path.resolve('src/components/views'),
+      'Api': path.resolve('src/api'),
     },
     plugins: [
       // Prevents users from importing files from outside of src/ (or node_modules/).

@@ -15,10 +15,27 @@ namespace UserManagement.Services
         {
             IUserRepository userRepository = new UserRepository();
 
+
+            string id = Guid.NewGuid().ToString();
+
+            user.Id = id;
+
             var result = userRepository.Add(user);
 
             return result;
         }
+
+
+        public User GetUserById(string id)
+        {
+            IUserRepository userRepository = new UserRepository();
+
+            var result = userRepository.GetUserById(id);
+
+            return result;
+
+        }
+
 
         public IEnumerable<User> GetUsers()
         {
@@ -29,6 +46,23 @@ namespace UserManagement.Services
             return result;
         }
 
-    
+        public bool Delete(string userId)
+        {
+            IUserRepository userRepository = new UserRepository();
+
+            var user = userRepository.GetUserById(userId);
+
+            var result = userRepository.Delete(user);
+
+            return result;
+        }
+
+        public bool UpdateUser(User user)
+        {
+            IUserRepository userRepository = new UserRepository();
+            return userRepository.UpdateUser(user);
+
+
+        }
     }
 }

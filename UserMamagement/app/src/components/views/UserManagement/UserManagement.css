@@ -1,0 +1,28 @@
+
+.us-user-management{
+   
+}
+
+
+
+.maincomponent {
+    padding-left:10px;
+    padding-top:10px;
+    padding-bottom:10px;
+    background-color: #EFF0F1;
+    width: 100%;
+    overflow: hidden; 
+}
+
+
+.leftside {
+    width: 50%;
+    float:left; 
+}
+.rightside {
+    padding-top:10px;
+    padding-left: 10px;
+    text-align:left;
+    width:50%;
+    overflow: hidden; 
+}
