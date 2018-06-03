@@ -4,9 +4,7 @@ import './FormInput.css';
 
 
 class FormInput extends Component {
-    
     render() {
-        
       return (
         <div className="us-user-management-form-input">
             <div> 
@@ -20,6 +18,7 @@ class FormInput extends Component {
                 onChange={this.props.onChange}
                 name={this.props.name}
                 />
+              <span className="error">{this.props.error}</span>
           
         </div>
       );

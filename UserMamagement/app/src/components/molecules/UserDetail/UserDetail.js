@@ -20,11 +20,65 @@ class UserDetail extends Component {
         HomeTown:'',
         Motto:'',
         PersonalBlog:'',
-        Image: undefined
+        Image: undefined,
+        errors: {
+          FullName:'',
+          Description:'',
+          Hobbies:'',
+          HomeTown:'',
+          Motto:'',
+          PersonalBlog:'',
+        }
+        
       })
-
-
     }
+
+    validate(){
+
+      let validated = true;
+      if (this.state.FullName === ''){
+        var FullNameError = 'Full name is required';
+        validated = false;
+      }
+
+      if (this.state.Description === ''){
+        var DescriptionError = 'Description is required';
+        validated = false;
+      }
+
+      if (this.state.Hobbies === ''){
+        var HobbiesError = 'Hobbies is required';
+        validated = false;
+      }
+
+      if (this.state.HomeTown === ''){
+        var HomeTownError = 'HomeTown is required';
+        validated = false;
+      }
+
+      if (this.state.Motto === ''){
+        var MottoError = 'Motto is required';
+        validated = false;
+      }
+      if (this.state.PersonalBlog === ''){
+        var PersonalBlogError = 'PersonalBlog is required';
+        validated = false;
+      }
+
+      const errors = {
+         FullName : FullNameError,
+         Description : DescriptionError,
+         Hobbies : HobbiesError,
+         HomeTown: HomeTownError,
+         Motto : MottoError,
+         PersonalBlog : PersonalBlogError,
+      }
+      this.setState({
+        errors:errors
+      })
+      return validated;
+    }
+
 
 
     componentWillReceiveProps(nextProps){
@@ -48,10 +102,18 @@ class UserDetail extends Component {
               Motto,
               PersonalBlog,
               Id,
-              Image
+              Image,
+              errors: {
+                FullName:'',
+                Description:'',
+                Hobbies:'',
+                HomeTown:'',
+                Motto:'',
+                PersonalBlog:'',
+              }
+              
             })
       }
-
     }
 
     componentWillMount(){
@@ -73,7 +135,15 @@ class UserDetail extends Component {
         Motto,
         PersonalBlog,
         Id,
-        Image
+        Image,
+        errors: {
+          FullName:'',
+          Description:'',
+          Hobbies:'',
+          HomeTown:'',
+          Motto:'',
+          PersonalBlog:'',
+        },
 
       })
 
@@ -100,8 +170,8 @@ class UserDetail extends Component {
     }
 
     handleAddUser = () =>{
+      if (!this.validate()) return ;
       const userApi = new UserApi();
-
       const {
         FullName,
         Description,
@@ -126,8 +196,8 @@ class UserDetail extends Component {
     }
 
     handleEditUser = () =>{
+      if (!this.validate()) return ;
       const userApi = new UserApi();
-      console.log("State", this.state);
       const {
         FullName,
         Description,
@@ -218,48 +288,51 @@ class UserDetail extends Component {
     render() {
       return (
         <div className="us-user-management-list-view">
-
-         
-
           {this.renderImage()}
-          
+
         <hr/>
 
           <FormInput label="Full Name"
                      name="FullName"
                      placeholder="Full Name"
                      value={this.state.FullName}
-                     onChange={this.handleChange}/>
+                     onChange={this.handleChange}
+                     error={this.state.errors.FullName}/>
 
            <FormInput label="Description"
                      name="Description"
                      placeholder="Description"
                      value={this.state.Description}
-                     onChange={this.handleChange}/>
+                     onChange={this.handleChange}
+                     error={this.state.errors.Description}/>
 
            <FormInput label="Hobbies"
                      name="Hobbies"
                      placeholder="Hobbies"
                      value={this.state.Hobbies}
-                     onChange={this.handleChange}/>
+                     onChange={this.handleChange}
+                     error={this.state.errors.Hobbies}/>
 
             <FormInput label="Home Town"
                      name="HomeTown"
                      placeholder="Home Town"
                      value={this.state.HomeTown}
-                     onChange={this.handleChange}/>
+                     onChange={this.handleChange}
+                     error={this.state.errors.HomeTown}/>
 
             <FormInput label="Motto"
                      name="Motto"
                      placeholder="Motto"
                      value={this.state.Motto}
-                     onChange={this.handleChange}/>
+                     onChange={this.handleChange}
+                     error={this.state.errors.Motto}/>
 
             <FormInput label="Personal Blog"
                      name="PersonalBlog"
                      placeholder="Personal Blog"
                      value={this.state.PersonalBlog}
-                     onChange={this.handleChange}/>
+                     onChange={this.handleChange}
+                     error={this.state.errors.PersonalBlog}/>
           
           {this.renderAddEditButton()}
           
