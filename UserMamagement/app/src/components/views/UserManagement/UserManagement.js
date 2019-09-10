@@ -7,72 +7,63 @@ import './UserManagement.css';
 
 class UserManagement extends Component {
 
-  constructor(props){
-    super(props);
-  }
-
-
-  componentWillMount(){
+  componentWillMount() {
     this.setState({
       data: [],
       selectedUser: {},
     })
   }
 
-
   handleResponse = (response) => {
-
-  
-    if (response.status === 200){
+    if (response.status === 200) {
       this.setState({
         data: response.data,
         selectedUser: "",
-        isAdd:true,
+        isAdd: true,
       });
     }
   }
 
-  searchUsers = () =>{
+  searchUsers = () => {
     const userApi = new UserApi();
     userApi.GetUsers(this.handleResponse);
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.searchUsers();
   }
 
   handleSelection = (selectedUser) => {
     this.setState({
       selectedUser,
-      isAdd:false,
+      isAdd: false,
     });
   }
 
-  handleAddNew = () =>{
-      this.setState({
-        selectedUser:{},
-        isAdd: true,
-      });
+  handleAddNew = () => {
+    this.setState({
+      selectedUser: {},
+      isAdd: true,
+    });
   }
 
-  
   render() {
     return (
       <div className="us-user-management container">
-       
-       <div className="maincomponent">
+
+        <div className="maincomponent">
           <div className="leftside">
-              <ListView data={this.state.data} 
-                 handleSelection={this.handleSelection}
-                 addNew={this.handleAddNew}
-                 refresh={this.searchUsers}/>
+            <ListView data={this.state.data}
+              handleSelection={this.handleSelection}
+              addNew={this.handleAddNew}
+              refresh={this.searchUsers} />
           </div>
 
           <div className="rightside">
-              <UserDetail data={this.state.selectedUser} 
+            <UserDetail data={this.state.selectedUser}
               isAdd={this.state.isAdd}
-              updateListView={this.searchUsers} 
-              refresh={this.searchUsers}/>
+              updateListView={this.searchUsers}
+              refresh={this.searchUsers} />
           </div>
         </div>
       </div>

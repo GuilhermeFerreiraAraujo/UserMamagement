@@ -2,16 +2,7 @@ import React, { Component } from 'react';
 import ListRow from 'Molecules/ListRow';
 import './ListView.css';
 
-
-
 class ListView extends Component {
-
-    constructor(props){
-        super(props);
-    }
-
-
-
 
     renderListView(){
         return (
@@ -31,9 +22,7 @@ class ListView extends Component {
     render() {
       return (
         <div className="us-user-management-list-view">
-  
              {this.renderListView()}
-          
         </div>
       );
     }

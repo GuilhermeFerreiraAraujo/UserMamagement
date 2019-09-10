@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using UserManagement.Intefaces.IRepository;
 using UserManagement.Intefaces.IService;
 using UserManagement.Models;
@@ -15,8 +13,7 @@ namespace UserManagement.Services
         {
             IUserRepository userRepository = new UserRepository();
 
-
-            string id = Guid.NewGuid().ToString();
+            var id = Guid.NewGuid().ToString();
 
             user.Id = id;
 
@@ -33,9 +30,7 @@ namespace UserManagement.Services
             var result = userRepository.GetUserById(id);
 
             return result;
-
         }
-
 
         public IEnumerable<User> GetUsers()
         {
@@ -61,8 +56,6 @@ namespace UserManagement.Services
         {
             IUserRepository userRepository = new UserRepository();
             return userRepository.UpdateUser(user);
-
-
         }
     }
 }
